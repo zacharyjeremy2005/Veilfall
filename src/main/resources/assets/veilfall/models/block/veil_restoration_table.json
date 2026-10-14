@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "minecraft:block/crafting_table"
-  }
-}
+{"parent":"minecraft:block/cube_all","textures":{"all":"veilfall:block/veil_restoration_table"}}
