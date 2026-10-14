@@ -25,13 +25,13 @@ public final class CorruptionHud {
   }
   if(!event.getOverlay().id().equals(VanillaGuiOverlay.HOTBAR.id()))return;
   int scale=VeilfallConfig.HUD_SCALE.get(),width=144;
-  String label="VEILFALL  "+value+"%";
+  Component label=Component.translatable("hud.veilfall.label",value);
   int x=(screenW-width*scale/100)/2,y=6;
   g.pose().pushPose();g.pose().translate(x,y,0);g.pose().scale(scale/100.0F,scale/100.0F,1);
   int labelWidth=mc.font.width(label);
   g.fill(-5,-4,width+5,34,0xA5100C19);
   g.fill(-5,-4,width+5,-2,0xFF9D68BE);
-  g.drawString(mc.font,Component.literal(label),(width-labelWidth)/2,0,0xFFEDE2FF,true);
+  g.drawString(mc.font,label,(width-labelWidth)/2,0,0xFFEDE2FF,true);
   g.fill(0,12,width,19,0xFF211A2A);
   int filled=width*value/100;
   int barColor=value<25?0xFF7D69B8:value<50?0xFF9A4FD1:value<75?0xFFC13D91:0xFFE33145;
