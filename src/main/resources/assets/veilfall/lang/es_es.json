@@ -46,5 +46,11 @@
   "item.veilfall.dread_walker_spawn_egg": "Huevo generador de Dread Walker",
   "item.veilfall.veil_thrall_spawn_egg": "Huevo generador de Veil Thrall",
   "item.veilfall.corruption_brute_spawn_egg": "Huevo generador de Corruption Brute",
-  "item.veilfall.the_unmaking_spawn_egg": "Huevo generador de El Deshacedor"
+  "item.veilfall.the_unmaking_spawn_egg": "Huevo generador de El Deshacedor",
+  "hud.veilfall.label": "VEILFALL  %s%%",
+  "hud.veilfall.phase_dormant": "LATENTE",
+  "hud.veilfall.phase_breach": "FASE I · BRECHA",
+  "hud.veilfall.phase_fracture": "FASE II · FRACTURA",
+  "hud.veilfall.phase_unraveling": "FASE III · DESGARRO",
+  "hud.veilfall.phase_unmaking": "EL DESHACEDOR"
 }
