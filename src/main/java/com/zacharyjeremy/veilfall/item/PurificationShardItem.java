@@ -29,7 +29,7 @@ public class PurificationShardItem extends Item {
             if (level instanceof ServerLevel serverLevel) {
                 CorruptionSavedData.get(serverLevel).addCorruption(-2);
             }
-            if (!context.getPlayer().getAbilities().instabuild) {
+            if (context.getPlayer() != null && !context.getPlayer().getAbilities().instabuild) {
                 context.getItemInHand().shrink(1);
             }
         }
