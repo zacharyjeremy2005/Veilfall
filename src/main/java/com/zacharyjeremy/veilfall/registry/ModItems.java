@@ -43,6 +43,6 @@ public final class ModItems {
  public static final RegistryObject<Item> CORRUPTION_BRUTE_SPAWN_EGG=egg("corruption_brute",ModEntities.CORRUPTION_BRUTE,0x3B2028,0xC12C42);
  public static final RegistryObject<Item> THE_UNMAKING_SPAWN_EGG=egg("the_unmaking",ModEntities.THE_UNMAKING,0x09090D,0xFF1744);
  private static RegistryObject<Item> blockItem(String name,RegistryObject<net.minecraft.world.level.block.Block> block){return ITEMS.register(name,()->new BlockItem(block.get(),new Item.Properties()));}
- private static <T extends net.minecraft.world.entity.Mob> RegistryObject<Item> egg(String name,RegistryObject<net.minecraft.world.entity.EntityType<T>> type,int background,int spots){return ITEMS.register(name+"_spawn_egg",()->new SpawnEggItem(type.get(),background,spots,new Item.Properties()));}
+ private static <T extends net.minecraft.world.entity.Mob> RegistryObject<Item> egg(String name,RegistryObject<net.minecraft.world.entity.EntityType<T>> type,int background,int spots){return ITEMS.register(name+"_spawn_egg",()->new DeferredVeilSpawnEggItem(type,background,spots,new Item.Properties()));}
  private ModItems(){}
 }
