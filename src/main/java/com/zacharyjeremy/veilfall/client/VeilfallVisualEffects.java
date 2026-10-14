@@ -85,6 +85,7 @@ public final class VeilfallVisualEffects {
   tess.end();
   RenderSystem.enableDepthTest();
   RenderSystem.disableBlend();
+  RenderSystem.setShaderColor(1.0F,1.0F,1.0F,1.0F);
   pose.popPose();
  }
 
