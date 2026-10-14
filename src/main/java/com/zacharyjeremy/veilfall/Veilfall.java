@@ -1,6 +1,7 @@
 package com.zacharyjeremy.veilfall;
 
 import com.mojang.logging.LogUtils;
+import com.zacharyjeremy.veilfall.network.VeilfallNetwork;
 import com.zacharyjeremy.veilfall.registry.ModBlocks;
 import com.zacharyjeremy.veilfall.registry.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,6 +18,7 @@ public final class Veilfall {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        VeilfallNetwork.register();
         LOGGER.info("Veilfall is awakening. The world is no longer safe.");
     }
 }
