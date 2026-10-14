@@ -55,7 +55,7 @@ public final class VeilfallVisualEffects {
   if(mc.level==null||mc.player==null)return;
   int corruption=ClientCorruptionState.get();
   if(corruption<10)return;
-  float radius=1.2F+corruption*0.105F;
+  float radius=0.06F+corruption*0.0022F;
   float alpha=Math.min(0.92F,0.32F+corruption/150.0F);
   PoseStack pose=event.getPoseStack();
   pose.pushPose();
