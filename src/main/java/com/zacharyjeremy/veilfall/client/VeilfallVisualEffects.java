@@ -77,7 +77,7 @@ public final class VeilfallVisualEffects {
    buffer.vertex(matrix,(float)Math.cos(a)*core,(float)Math.sin(a)*core,0.0F).color(4,2,10,(int)(255*alpha)).endVertex();
   }
   tess.end();
-  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.DEBUG_LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
+  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
   for(int i=0;i<=96;i++){
    double a=Math.PI*2.0*i/96.0;
    buffer.vertex(matrix,(float)Math.cos(a)*radius,(float)Math.sin(a)*radius,-0.001F).color(113,42,160,(int)(150*alpha)).endVertex();
