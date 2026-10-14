@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["VV ", "VS ", " S "],
+  "key": {
+    "V": { "item": "veilfall:purification_shard" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "veilfall:corruption_axe" }
+}
