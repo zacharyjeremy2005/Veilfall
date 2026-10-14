@@ -11,6 +11,11 @@ public final class ModItems {
  public static final RegistryObject<Item> FORGOTTEN_CONCRETE_ITEM=blockItem("forgotten_concrete",ModBlocks.FORGOTTEN_CONCRETE);
  public static final RegistryObject<Item> VEILITE_ORE_ITEM=blockItem("veilite_ore",ModBlocks.VEILITE_ORE);
  public static final RegistryObject<Item> DEEPSLATE_VEILITE_ORE_ITEM=blockItem("deepslate_veilite_ore",ModBlocks.DEEPSLATE_VEILITE_ORE);
+ public static final RegistryObject<Item> VEIL_LOG_ITEM=blockItem("veil_log",ModBlocks.VEIL_LOG);
+ public static final RegistryObject<Item> STRIPPED_VEIL_LOG_ITEM=blockItem("stripped_veil_log",ModBlocks.STRIPPED_VEIL_LOG);
+ public static final RegistryObject<Item> VEIL_PLANKS_ITEM=blockItem("veil_planks",ModBlocks.VEIL_PLANKS);
+ public static final RegistryObject<Item> VEIL_LEAVES_ITEM=blockItem("veil_leaves",ModBlocks.VEIL_LEAVES);
+ public static final RegistryObject<Item> VEIL_SAPLING_ITEM=blockItem("veil_sapling",ModBlocks.VEIL_SAPLING);
  public static final RegistryObject<Item> VEIL_RESTORATION_TABLE_ITEM=blockItem("veil_restoration_table",ModBlocks.VEIL_RESTORATION_TABLE);
  public static final RegistryObject<Item> PURIFICATION_SHARD=ITEMS.register("purification_shard",()->new PurificationShardItem(new Item.Properties().stacksTo(16)));
  public static final RegistryObject<Item> RAW_VEILITE=ITEMS.register("raw_veilite",()->new Item(new Item.Properties()));
