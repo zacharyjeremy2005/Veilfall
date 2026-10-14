@@ -3,14 +3,14 @@ import net.minecraft.client.Minecraft;
 import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid="veilfall",bus=Mod.EventBusSubscriber.Bus.FORGE,value=Dist.CLIENT)
 public final class VeilfallVisualEffects {
  private VeilfallVisualEffects(){}
- @SubscribeEvent public static void fogColors(EntityViewRenderEvent.FogColors event){
+ @SubscribeEvent public static void fogColors(ViewportEvent.ComputeFogColor event){
   if(!VeilfallConfig.VISUAL_EFFECTS.get())return;
   Minecraft mc=Minecraft.getInstance();if(mc.level==null)return;
   float c=ClientCorruptionState.get()/100.0F;
