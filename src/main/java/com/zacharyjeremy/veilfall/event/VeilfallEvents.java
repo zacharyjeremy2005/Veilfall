@@ -31,16 +31,16 @@ public final class VeilfallEvents {
     ServerPlayer anchor=players.get(0);CorruptionSavedData data=CorruptionSavedData.get(event.getServer().overworld());
     if(data.getCorruption()==0){data.setCorruption(1);seedCorruption(anchor.serverLevel(),anchor);}
     else{
-     data.addCorruption(1);int value=data.getCorruption();
+     int previous=data.getCorruption();data.addCorruption(1);int value=data.getCorruption();
      if(tick%(CORRUPTION_STEP_TICKS*2)==0)seedCorruption(anchor.serverLevel(),anchor);
-     if(value==20)announce(event.getServer().overworld(),"The Veil is stirring. Strange sounds carry on the wind...",SoundEvents.AMETHYST_BLOCK_CHIME);
-     if(value==25)announce(event.getServer().overworld(),"PHASE I — THE VEIL IS OPENING",SoundEvents.RESPAWN_ANCHOR_CHARGE);
-     if(value==45)announce(event.getServer().overworld(),"The air is splitting. Prepare for a violent change.",SoundEvents.RESPAWN_ANCHOR_CHARGE);
-     if(value==50)announce(event.getServer().overworld(),"PHASE II — REALITY IS FRACTURING",SoundEvents.WITHER_AMBIENT);
-     if(value==70)announce(event.getServer().overworld(),"Something vast is moving beneath the world...",SoundEvents.WITHER_AMBIENT);
-     if(value==75)announce(event.getServer().overworld(),"PHASE III — THE WORLD IS UNRAVELING",SoundEvents.WITHER_SPAWN);
-     if(value==95)announce(event.getServer().overworld(),"FINAL WARNING: the Veil is about to collapse.",SoundEvents.WITHER_SPAWN);
-     if(value==100)announce(event.getServer().overworld(),"PHASE IV — THE UNMAKING HAS BEGUN",SoundEvents.ENDER_DRAGON_GROWL);
+     if(previous<20&&value>=20)announce(event.getServer().overworld(),"The Veil is stirring. Strange sounds carry on the wind...",SoundEvents.AMETHYST_BLOCK_CHIME);
+     if(previous<25&&value>=25)announce(event.getServer().overworld(),"PHASE I — THE VEIL IS OPENING",SoundEvents.RESPAWN_ANCHOR_CHARGE);
+     if(previous<45&&value>=45)announce(event.getServer().overworld(),"The air is splitting. Prepare for a violent change.",SoundEvents.RESPAWN_ANCHOR_CHARGE);
+     if(previous<50&&value>=50)announce(event.getServer().overworld(),"PHASE II — REALITY IS FRACTURING",SoundEvents.WITHER_AMBIENT);
+     if(previous<70&&value>=70)announce(event.getServer().overworld(),"Something vast is moving beneath the world...",SoundEvents.WITHER_AMBIENT);
+     if(previous<75&&value>=75)announce(event.getServer().overworld(),"PHASE III — THE WORLD IS UNRAVELING",SoundEvents.WITHER_SPAWN);
+     if(previous<95&&value>=95)announce(event.getServer().overworld(),"FINAL WARNING: the Veil is about to collapse.",SoundEvents.WITHER_SPAWN);
+     if(previous<100&&value>=100)announce(event.getServer().overworld(),"PHASE IV — THE UNMAKING HAS BEGUN",SoundEvents.ENDER_DRAGON_GROWL);
     }
    }
   }
