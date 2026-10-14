@@ -52,5 +52,10 @@
   "hud.veilfall.phase_breach": "PHASE I · BREACH",
   "hud.veilfall.phase_fracture": "PHASE II · FRACTURE",
   "hud.veilfall.phase_unraveling": "PHASE III · UNRAVELING",
-  "hud.veilfall.phase_unmaking": "THE UNMAKING"
+  "hud.veilfall.phase_unmaking": "THE UNMAKING",
+  "block.veilfall.veil_log": "Veil Log",
+  "block.veilfall.stripped_veil_log": "Stripped Veil Log",
+  "block.veilfall.veil_planks": "Veil Planks",
+  "block.veilfall.veil_leaves": "Veil Leaves",
+  "block.veilfall.veil_sapling": "Veil Sapling"
 }
