@@ -55,7 +55,7 @@ public final class VeilfallEvents {
  }
  private static void triggerRiftSurge(net.minecraft.server.MinecraftServer server,int phase){
   for(ServerPlayer player:server.getPlayerList().getPlayers()){
-   if(!(player.serverLevel() instanceof ServerLevel level))continue;
+   ServerLevel level=player.serverLevel();
    if(phase==4&&!level.getEntitiesOfClass(VeilfallBoss.class,player.getBoundingBox().inflate(96.0D)).isEmpty())continue;
    int count=phase==1?1:phase==2?2:phase==3?3:1;
    for(int i=0;i<count;i++){
