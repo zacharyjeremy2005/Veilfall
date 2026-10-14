@@ -46,5 +46,11 @@
   "item.veilfall.dread_walker_spawn_egg": "Dread Walker Spawn Egg",
   "item.veilfall.veil_thrall_spawn_egg": "Veil Thrall Spawn Egg",
   "item.veilfall.corruption_brute_spawn_egg": "Corruption Brute Spawn Egg",
-  "item.veilfall.the_unmaking_spawn_egg": "The Unmaking Spawn Egg"
+  "item.veilfall.the_unmaking_spawn_egg": "The Unmaking Spawn Egg",
+  "hud.veilfall.label": "VEILFALL  %s%%",
+  "hud.veilfall.phase_dormant": "DORMANT",
+  "hud.veilfall.phase_breach": "PHASE I · BREACH",
+  "hud.veilfall.phase_fracture": "PHASE II · FRACTURE",
+  "hud.veilfall.phase_unraveling": "PHASE III · UNRAVELING",
+  "hud.veilfall.phase_unmaking": "THE UNMAKING"
 }
