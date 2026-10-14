@@ -1,5 +1,16 @@
 {
   "block.veilfall.corrupted_ground": "Corrupted Ground",
   "item.veilfall.corrupted_ground": "Corrupted Ground",
-  "item.veilfall.purification_shard": "Purification Shard"
+  "item.veilfall.purification_shard": "Purification Shard",
+  "entity.veilfall.veil_stalker": "Veil Stalker",
+  "entity.veilfall.rotwalker": "Rotwalker",
+  "entity.veilfall.ashen_husk": "Ashen Husk",
+  "entity.veilfall.blight_crawler": "Blight Crawler",
+  "entity.veilfall.hollow_sentinel": "Hollow Sentinel",
+  "entity.veilfall.riftbound": "Riftbound",
+  "entity.veilfall.flesh_marionette": "Flesh Marionette",
+  "entity.veilfall.dread_walker": "Dread Walker",
+  "entity.veilfall.veil_thrall": "Veil Thrall",
+  "entity.veilfall.corruption_brute": "Corruption Brute",
+  "entity.veilfall.the_unmaking": "The Unmaking"
 }
