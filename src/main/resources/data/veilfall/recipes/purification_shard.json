@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:amethyst_shard" },
+    { "item": "minecraft:glowstone_dust" },
+    { "item": "minecraft:iron_nugget" }
+  ],
+  "result": {
+    "item": "veilfall:purification_shard",
+    "count": 2
+  }
+}
