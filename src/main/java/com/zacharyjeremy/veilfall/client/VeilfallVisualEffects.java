@@ -2,7 +2,6 @@ package com.zacharyjeremy.veilfall.client;
 import net.minecraft.client.Minecraft;
 import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
