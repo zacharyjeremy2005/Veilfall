@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.zacharyjeremy.veilfall.network.VeilfallNetwork;
 import com.zacharyjeremy.veilfall.registry.ModBlocks;
 import com.zacharyjeremy.veilfall.registry.ModItems;
+import com.zacharyjeremy.veilfall.registry.ModEntities;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -18,6 +19,7 @@ public final class Veilfall {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        ModEntities.ENTITY_TYPES.register(modBus);
         VeilfallNetwork.register();
         LOGGER.info("Veilfall is awakening. The world is no longer safe.");
     }
