@@ -2,6 +2,7 @@ package com.zacharyjeremy.veilfall.client;
 import net.minecraft.client.Minecraft;
 import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
@@ -24,7 +25,7 @@ public final class VeilfallVisualEffects {
  @SubscribeEvent public static void ambientParticles(TickEvent.ClientTickEvent event){
   if(event.phase!=TickEvent.Phase.END||!VeilfallConfig.VISUAL_EFFECTS.get())return;
   Minecraft mc=Minecraft.getInstance();if(mc.level==null||mc.player==null)return;
-  int c=ClientCorruptionState.get();if(c<25)return;
+  int c=ClientCorruptionState.get();\n  if(c>=10 && mc.level.random.nextFloat()<0.025F){\n   double x=mc.player.getX(), y=mc.player.getY(), z=mc.player.getZ();\n   mc.level.addParticle(ParticleTypes.REVERSE_PORTAL, x+(mc.level.random.nextDouble()-0.5D)*24.0D, y+10.0D+mc.level.random.nextDouble()*6.0D, z+(mc.level.random.nextDouble()-0.5D)*24.0D, 0.0D, -0.01D, 0.0D);\n  }\n  if(c<10)return;
   double x=mc.player.getX(),y=mc.player.getY()+0.5,z=mc.player.getZ();
   if(mc.level.random.nextFloat()<(c>=75?0.28F:c>=50?0.18F:0.10F)){
    double px=x+(mc.level.random.nextDouble()-0.5D)*18.0D;
@@ -34,7 +35,7 @@ public final class VeilfallVisualEffects {
    else if(c>=50)mc.level.addParticle(ParticleTypes.REVERSE_PORTAL,px,py,pz,0.0D,0.015D,0.0D);
    else mc.level.addParticle(ParticleTypes.ASH,px,py,pz,0.0D,0.008D,0.0D);
   }
-  if(c>=50&&mc.level.random.nextFloat()<0.035F){
+  if(c>=25&&mc.level.random.nextFloat()<0.035F){
    mc.level.addParticle(ParticleTypes.PORTAL,x+(mc.level.random.nextDouble()-0.5D)*3.0D,y+mc.level.random.nextDouble()*2.5D,z+(mc.level.random.nextDouble()-0.5D)*3.0D,0.0D,0.02D,0.0D);
   }
  }
