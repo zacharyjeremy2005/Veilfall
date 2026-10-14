@@ -1,5 +1,6 @@
 package com.zacharyjeremy.veilfall.client;
 import net.minecraft.client.Minecraft;
+import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -10,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 public final class VeilfallVisualEffects {
  private VeilfallVisualEffects(){}
  @SubscribeEvent public static void fogColors(EntityViewRenderEvent.FogColors event){
+  if(!VeilfallConfig.VISUAL_EFFECTS.get())return;
   Minecraft mc=Minecraft.getInstance();if(mc.level==null)return;
   float c=ClientCorruptionState.get()/100.0F;
   if(c<=0)return;
@@ -20,7 +22,7 @@ public final class VeilfallVisualEffects {
   event.setRed(r);event.setGreen(Math.max(0.025F,g));event.setBlue(Math.max(0.04F,b));
  }
  @SubscribeEvent public static void ambientParticles(TickEvent.ClientTickEvent event){
-  if(event.phase!=TickEvent.Phase.END)return;
+  if(event.phase!=TickEvent.Phase.END||!VeilfallConfig.VISUAL_EFFECTS.get())return;
   Minecraft mc=Minecraft.getInstance();if(mc.level==null||mc.player==null)return;
   int c=ClientCorruptionState.get();if(c<25)return;
   double x=mc.player.getX(),y=mc.player.getY()+0.5,z=mc.player.getZ();
