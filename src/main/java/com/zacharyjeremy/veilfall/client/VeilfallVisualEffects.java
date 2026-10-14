@@ -87,5 +87,6 @@ public final class VeilfallVisualEffects {
   RenderSystem.disableBlend();
   pose.popPose();
  }
-\n private static float lerp(float a,float b,float t){return a+(b-a)*Math.max(0.0F,Math.min(1.0F,t));}
+
+ private static float lerp(float a,float b,float t){return a+(b-a)*Math.max(0.0F,Math.min(1.0F,t));}
 }
