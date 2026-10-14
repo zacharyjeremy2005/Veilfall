@@ -52,5 +52,10 @@
   "hud.veilfall.phase_breach": "FASE I · BRECHA",
   "hud.veilfall.phase_fracture": "FASE II · FRACTURA",
   "hud.veilfall.phase_unraveling": "FASE III · DESGARRO",
-  "hud.veilfall.phase_unmaking": "EL DESHACEDOR"
+  "hud.veilfall.phase_unmaking": "EL DESHACEDOR",
+  "block.veilfall.veil_log": "Tronco del Velo",
+  "block.veilfall.stripped_veil_log": "Tronco del Velo sin corteza",
+  "block.veilfall.veil_planks": "Tablones del Velo",
+  "block.veilfall.veil_leaves": "Hojas del Velo",
+  "block.veilfall.veil_sapling": "Brote del Velo"
 }
