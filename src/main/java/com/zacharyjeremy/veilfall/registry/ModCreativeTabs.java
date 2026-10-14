@@ -11,7 +11,7 @@ public final class ModCreativeTabs {
  public static final RegistryObject<CreativeModeTab> VEILFALL_TAB=TABS.register("veilfall",()->CreativeModeTab.builder()
   .title(Component.translatable("itemGroup.veilfall")).icon(()->new ItemStack(ModItems.VEILITE_INGOT.get()))
   .displayItems((parameters,output)->{
-   output.accept(ModItems.CORRUPTED_GROUND_ITEM.get());output.accept(ModItems.FORGOTTEN_CONCRETE_ITEM.get());output.accept(ModItems.VEILITE_ORE_ITEM.get());output.accept(ModItems.DEEPSLATE_VEILITE_ORE_ITEM.get());output.accept(ModItems.VEIL_RESTORATION_TABLE_ITEM.get());
+   output.accept(ModItems.VEIL_LOG_ITEM.get());output.accept(ModItems.STRIPPED_VEIL_LOG_ITEM.get());output.accept(ModItems.VEIL_PLANKS_ITEM.get());output.accept(ModItems.VEIL_LEAVES_ITEM.get());output.accept(ModItems.VEIL_SAPLING_ITEM.get());\n   output.accept(ModItems.CORRUPTED_GROUND_ITEM.get());output.accept(ModItems.FORGOTTEN_CONCRETE_ITEM.get());output.accept(ModItems.VEILITE_ORE_ITEM.get());output.accept(ModItems.DEEPSLATE_VEILITE_ORE_ITEM.get());output.accept(ModItems.VEIL_RESTORATION_TABLE_ITEM.get());
    output.accept(ModItems.PURIFICATION_SHARD.get());output.accept(ModItems.VEIL_CRYSTAL.get());output.accept(ModItems.RAW_VEILITE.get());output.accept(ModItems.VEILITE_INGOT.get());output.accept(ModItems.VEILITE_UPGRADE_TEMPLATE.get());
    output.accept(ModItems.VEILBLADE.get());output.accept(ModItems.CORRUPTION_AXE.get());output.accept(ModItems.RIFT_PICKAXE.get());
    output.accept(ModItems.VEILITE_SWORD.get());output.accept(ModItems.VEILITE_PICKAXE.get());output.accept(ModItems.VEILITE_AXE.get());output.accept(ModItems.VEILITE_SHOVEL.get());output.accept(ModItems.VEILITE_HOE.get());
