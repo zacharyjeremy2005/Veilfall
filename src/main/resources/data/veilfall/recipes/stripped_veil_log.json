@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_axe"
+    },
+    {
+      "item": "veilfall:veil_log"
+    }
+  ],
+  "result": {
+    "item": "veilfall:stripped_veil_log",
+    "count": 1
+  }
+}
