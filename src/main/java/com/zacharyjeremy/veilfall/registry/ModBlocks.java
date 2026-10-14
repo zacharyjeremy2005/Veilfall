@@ -7,15 +7,19 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;\nimport net.minecraft.world.level.block.state.BlockState;\nimport net.minecraft.world.level.levelgen.feature.ConfiguredFeature;\nimport net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.util.RandomSource;
 import java.util.Optional;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-public final class ModBlocks {\n private static final AbstractTreeGrower VEIL_TREE_GROWER = new AbstractTreeGrower() {\n  @Override protected Optional<ConfiguredFeature<TreeConfiguration, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) { return Optional.empty(); }\n };
+public final class ModBlocks {
+ private static final AbstractTreeGrower VEIL_TREE_GROWER = new AbstractTreeGrower() {
+  @Override protected Optional<ConfiguredFeature<TreeConfiguration, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) { return Optional.empty(); }
+ };
  public static final DeferredRegister<Block> BLOCKS=DeferredRegister.create(ForgeRegistries.BLOCKS,Veilfall.MOD_ID);
  public static final RegistryObject<Block> CORRUPTED_GROUND=BLOCKS.register("corrupted_ground",()->new CorruptedGroundBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK).strength(1.5F,6.0F).randomTicks().lightLevel(s->2)));
  public static final RegistryObject<Block> FORGOTTEN_CONCRETE=BLOCKS.register("forgotten_concrete",()->new Block(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).strength(2.0F,6.0F)));
