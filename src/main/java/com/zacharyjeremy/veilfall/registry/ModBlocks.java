@@ -1,6 +1,7 @@
 package com.zacharyjeremy.veilfall.registry;
 import com.zacharyjeremy.veilfall.Veilfall;
 import com.zacharyjeremy.veilfall.world.CorruptedGroundBlock;
+import com.zacharyjeremy.veilfall.block.VeilRestorationTableBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -13,6 +14,6 @@ public final class ModBlocks {
  public static final RegistryObject<Block> FORGOTTEN_CONCRETE=BLOCKS.register("forgotten_concrete",()->new Block(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).strength(2.0F,6.0F)));
  public static final RegistryObject<Block> VEILITE_ORE=BLOCKS.register("veilite_ore",()->new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(5.0F,9.0F).requiresCorrectToolForDrops()));
  public static final RegistryObject<Block> DEEPSLATE_VEILITE_ORE=BLOCKS.register("deepslate_veilite_ore",()->new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE).strength(5.5F,9.0F).requiresCorrectToolForDrops()));
- public static final RegistryObject<Block> VEIL_RESTORATION_TABLE=BLOCKS.register("veil_restoration_table",()->new Block(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE).strength(2.5F)));
+ public static final RegistryObject<Block> VEIL_RESTORATION_TABLE=BLOCKS.register("veil_restoration_table",()->new VeilRestorationTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE).strength(2.5F)));
  private ModBlocks(){}
 }
