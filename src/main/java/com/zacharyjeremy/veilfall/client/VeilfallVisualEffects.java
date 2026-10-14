@@ -1,5 +1,10 @@
 package com.zacharyjeremy.veilfall.client;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.GameRenderer;
+import org.joml.Matrix4f;
 import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraftforge.api.distmarker.Dist;
@@ -43,5 +48,44 @@ public final class VeilfallVisualEffects {
    mc.level.addParticle(ParticleTypes.PORTAL,x+(mc.level.random.nextDouble()-0.5D)*3.0D,y+mc.level.random.nextDouble()*2.5D,z+(mc.level.random.nextDouble()-0.5D)*3.0D,0.0D,0.02D,0.0D);
   }
  }
- private static float lerp(float a,float b,float t){return a+(b-a)*Math.max(0.0F,Math.min(1.0F,t));}
+
+ @SubscribeEvent public static void renderVeilSun(RenderLevelStageEvent event){
+  if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_SKY||!VeilfallConfig.VISUAL_EFFECTS.get())return;
+  Minecraft mc=Minecraft.getInstance();
+  if(mc.level==null||mc.player==null)return;
+  int corruption=ClientCorruptionState.get();
+  if(corruption<10)return;
+  float radius=1.2F+corruption*0.105F;
+  float alpha=Math.min(0.92F,0.32F+corruption/150.0F);
+  PoseStack pose=event.getPoseStack();
+  pose.pushPose();
+  pose.mulPose(mc.getEntityRenderDispatcher().cameraOrientation());
+  RenderSystem.enableBlend();
+  RenderSystem.defaultBlendFunc();
+  RenderSystem.setShader(GameRenderer::getPositionColorShader);
+  RenderSystem.disableDepthTest();
+  Matrix4f matrix=pose.last().pose();
+  float core=radius*0.72F;
+  // Dark disk with a thin, dim violet accretion ring. This is a sky-space effect, not a world light source.
+  RenderSystem.setShaderColor(1.0F,1.0F,1.0F,alpha);
+  com.mojang.blaze3d.vertex.Tesselator tess=com.mojang.blaze3d.vertex.Tesselator.getInstance();
+  com.mojang.blaze3d.vertex.BufferBuilder buffer=tess.getBuilder();
+  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.TRIANGLE_FAN, com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
+  buffer.vertex(matrix,0.0F,0.0F,0.0F).color(4,2,10,(int)(255*alpha)).endVertex();
+  for(int i=0;i<=64;i++){
+   double a=Math.PI*2.0*i/64.0;
+   buffer.vertex(matrix,(float)Math.cos(a)*core,(float)Math.sin(a)*core,0.0F).color(4,2,10,(int)(255*alpha)).endVertex();
+  }
+  tess.end();
+  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.DEBUG_LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
+  for(int i=0;i<=96;i++){
+   double a=Math.PI*2.0*i/96.0;
+   buffer.vertex(matrix,(float)Math.cos(a)*radius,(float)Math.sin(a)*radius,-0.001F).color(113,42,160,(int)(150*alpha)).endVertex();
+  }
+  tess.end();
+  RenderSystem.enableDepthTest();
+  RenderSystem.disableBlend();
+  pose.popPose();
+ }
+\n private static float lerp(float a,float b,float t){return a+(b-a)*Math.max(0.0F,Math.min(1.0F,t));}
 }
