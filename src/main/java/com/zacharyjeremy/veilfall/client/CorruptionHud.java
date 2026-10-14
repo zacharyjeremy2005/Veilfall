@@ -17,7 +17,7 @@ public final class CorruptionHud {
   var g=event.getGuiGraphics();
   int screenW=event.getWindow().getGuiScaledWidth(),screenH=event.getWindow().getGuiScaledHeight();
   // A restrained screen tint makes phase changes obvious without hiding the game.
-  if(event.getOverlay().id().equals(VanillaGuiOverlay.HOTBAR.id())&&value>=25){
+  if(event.getOverlay().id().equals(VanillaGuiOverlay.HOTBAR.id())&&value>=25&&VeilfallConfig.VISUAL_EFFECTS.get()){
    int pulse=(int)(Math.sin(mc.level==null?0:mc.level.getGameTime()*0.045)*3);
    int tint=value>=75?0x12A91438:value>=50?0x0D622C82:0x086F42A0;
    if(value>=75&&pulse>0)tint=0x18C21B3A;
