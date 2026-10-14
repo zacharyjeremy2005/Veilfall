@@ -1,5 +1,16 @@
 {
   "block.veilfall.corrupted_ground": "Suelo corrupto",
   "item.veilfall.corrupted_ground": "Suelo corrupto",
-  "item.veilfall.purification_shard": "Fragmento purificador"
+  "item.veilfall.purification_shard": "Fragmento purificador",
+  "entity.veilfall.veil_stalker": "Acechador del Velo",
+  "entity.veilfall.rotwalker": "Caminante Putrefacto",
+  "entity.veilfall.ashen_husk": "Cascarón Cenizo",
+  "entity.veilfall.blight_crawler": "Reptador de la Plaga",
+  "entity.veilfall.hollow_sentinel": "Centinela Hueco",
+  "entity.veilfall.riftbound": "Atado a la Grieta",
+  "entity.veilfall.flesh_marionette": "Marioneta de Carne",
+  "entity.veilfall.dread_walker": "Caminante del Terror",
+  "entity.veilfall.veil_thrall": "Siervo del Velo",
+  "entity.veilfall.corruption_brute": "Bruto Corrupto",
+  "entity.veilfall.the_unmaking": "El Deshacedor"
 }
