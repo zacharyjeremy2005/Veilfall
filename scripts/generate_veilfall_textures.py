@@ -102,7 +102,7 @@ def armor(kind):
 # Item textures
 save(item_ingot(), "item/veilite_ingot.png")
 save(item_shard(), "item/veil_crystal.png")
-save(item_shard().transpose(Image.Transpose.FLIP_LEFT_RIGHT(), "item/raw_veilite.png")
+save(item_shard().transpose(Image.Transpose.FLIP_LEFT_RIGHT), "item/raw_veilite.png")
 for kind in ("sword","pickaxe","axe","shovel","hoe"):
     save(weapon(kind), f"item/veilite_{kind}.png")
 for kind in ("helmet","chestplate","leggings","boots"):
