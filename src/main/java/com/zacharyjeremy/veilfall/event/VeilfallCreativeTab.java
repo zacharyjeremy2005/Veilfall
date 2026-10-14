@@ -18,5 +18,13 @@ public final class VeilfallCreativeTab {
         if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS)) {
             event.accept(ModItems.PURIFICATION_SHARD);
         }
+        if (event.getTabKey().equals(CreativeModeTabs.COMBAT)) {
+            event.accept(ModItems.VEILBLADE);
+            event.accept(ModItems.CORRUPTION_AXE);
+        }
+        if (event.getTabKey().equals(CreativeModeTabs.TOOLS_AND_UTILITIES)) {
+            event.accept(ModItems.RIFT_PICKAXE);
+            event.accept(ModItems.CORRUPTION_AXE);
+        }
     }
 }
