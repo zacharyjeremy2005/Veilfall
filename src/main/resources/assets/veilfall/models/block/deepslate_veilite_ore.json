@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "minecraft:block/deepslate_diamond_ore"
-  }
-}
+{"parent":"minecraft:block/cube_all","textures":{"all":"veilfall:block/deepslate_veilite_ore"}}
