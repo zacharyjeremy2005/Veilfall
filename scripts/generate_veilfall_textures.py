@@ -126,6 +126,52 @@ for layer in (1,2):
                 else:p[x,y]=(45,48,74,255)
     save(im,f"models/armor/veilite_layer_{layer}.png")
 
+
+# Veil wood: dark bark, pale rings, plum leaves and a cyan-purple sapling icon.
+im = noisy_block((28, 19, 36), [(42, 24, 49), (54, 30, 61), (19, 16, 29)], 41)
+d = ImageDraw.Draw(im)
+for x in (3, 7, 12):
+    d.line((x, 0, x-1, 15), fill=(103, 52, 113, 255), width=1)
+d.line((2, 6, 5, 5, 8, 7, 12, 6), fill=(170, 86, 195, 255), width=1)
+save(im, "block/veil_log.png")
+im = noisy_block((34, 22, 42), [(45, 29, 55), (58, 35, 68)], 42)
+d = ImageDraw.Draw(im)
+d.ellipse((3, 3, 12, 12), outline=(152, 90, 166, 255), width=2)
+d.ellipse((6, 6, 9, 9), outline=(201, 163, 210, 255), width=1)
+save(im, "block/stripped_veil_log.png")
+im = noisy_block((48, 28, 57), [(61, 36, 72), (73, 42, 83), (34, 23, 43)], 43)
+d = ImageDraw.Draw(im)
+d.line((1, 5, 14, 5), fill=(101, 51, 115, 255))
+d.line((1, 12, 14, 12), fill=(101, 51, 115, 255))
+save(im, "block/veil_planks.png")
+im = noisy_block((35, 23, 48), [(52, 31, 69), (66, 38, 83), (26, 45, 46), (36, 61, 55)], 44)
+d = ImageDraw.Draw(im)
+for x, y in [(3, 3), (10, 5), (6, 11), (13, 13)]:
+    d.point((x, y), fill=(137, 71, 161, 255))
+save(im, "block/veil_leaves.png")
+im = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+d.line((8, 14, 8, 5), fill=(128, 82, 157, 255), width=2)
+d.ellipse((3, 3, 9, 9), fill=(69, 35, 88, 255), outline=(166, 91, 197, 255))
+d.ellipse((7, 5, 13, 11), fill=(40, 78, 68, 255), outline=(103, 207, 177, 255))
+save(im, "block/veil_sapling.png")
+
+# Small inventory icons for the Veil wood family.
+for name in ("veil_log", "stripped_veil_log", "veil_planks", "veil_leaves", "veil_sapling"):
+    im = Image.new("RGBA", (16, 16), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    if name in ("veil_log", "stripped_veil_log"):
+        d.rectangle((3, 2, 12, 13), fill=(45, 27, 53, 255), outline=(137, 73, 157, 255))
+        d.ellipse((5, 4, 10, 11), outline=(183, 121, 198, 255))
+    elif name == "veil_planks":
+        d.rectangle((2, 2, 13, 13), fill=(65, 38, 75, 255), outline=(132, 76, 149, 255))
+        d.line((3, 6, 12, 6), fill=(172, 104, 188, 255)); d.line((3, 10, 12, 10), fill=(172, 104, 188, 255))
+    elif name == "veil_leaves":
+        d.rectangle((2, 2, 13, 13), fill=(46, 31, 58, 255), outline=(113, 70, 139, 255))
+        for x, y in [(4,4),(10,5),(7,10),(12,12)]: d.point((x,y), fill=(102, 210, 175, 255))
+    else:
+        d.line((8, 14, 8, 7), fill=(142, 94, 163, 255), width=2)
+        d.ellipse((3, 2, 10, 9), fill=(73, 36, 91, 255)); d.ellipse((7, 5, 13, 11), fill=(49, 93, 73, 255))
+    save(im, f"item/{name}.png")
+
 # Distinct, dark silhouettes and glowing eyes for the eleven Veilfall threats.
 mobs = {
  "veil_stalker":((31,22,43),(255,65,185)),
