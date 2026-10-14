@@ -15,7 +15,7 @@ public final class ModItems {
  public static final RegistryObject<Item> PURIFICATION_SHARD=ITEMS.register("purification_shard",()->new PurificationShardItem(new Item.Properties().stacksTo(16)));
  public static final RegistryObject<Item> RAW_VEILITE=ITEMS.register("raw_veilite",()->new Item(new Item.Properties()));
  public static final RegistryObject<Item> VEILITE_INGOT=ITEMS.register("veilite_ingot",()->new Item(new Item.Properties()));
- public static final RegistryObject<Item> VEIL_CRYSTAL=ITEMS.register("veil_crystal",()->new Item(new Item.Properties()));
+ public static final RegistryObject<Item> VEIL_CRYSTAL=ITEMS.register("veil_crystal",()->new VeilCrystalItem(new Item.Properties()));
  public static final RegistryObject<Item> VEILITE_UPGRADE_TEMPLATE=ITEMS.register("veilite_upgrade_template",()->new Item(new Item.Properties()));
  public static final RegistryObject<Item> VEILBLADE=ITEMS.register("veilblade",()->new SwordItem(Tiers.DIAMOND,5,-2.4F,new Item.Properties()));
  public static final RegistryObject<Item> CORRUPTION_AXE=ITEMS.register("corruption_axe",()->new AxeItem(Tiers.DIAMOND,5.0F,-3.1F,new Item.Properties()));
