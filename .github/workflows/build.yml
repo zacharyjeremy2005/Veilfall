@@ -28,6 +28,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.8'
+      - name: Set up texture generation
+        run: |
+          python -m pip install --upgrade pip pillow
+          python scripts/generate_veilfall_textures.py
       - name: Build mod
         run: gradle build --no-daemon
       - name: Upload mod JAR
