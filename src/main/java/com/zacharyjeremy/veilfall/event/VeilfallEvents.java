@@ -30,7 +30,10 @@ public final class VeilfallEvents {
  @SubscribeEvent public static void onServerTick(TickEvent.ServerTickEvent event){
   if(event.phase!=TickEvent.Phase.END)return;
   int tick=event.getServer().getTickCount();
-  int rate = VeilfallConfig.CORRUPTION_RATE.get();\n  int stepTicks = Math.max(1, CORRUPTION_STEP_TICKS / rate);\n  int startTicks = Math.max(1, CORRUPTION_START_TICKS / rate);\n  if(tick%stepTicks==0){
+  int rate = VeilfallConfig.CORRUPTION_RATE.get();
+  int stepTicks = Math.max(1, CORRUPTION_STEP_TICKS / rate);
+  int startTicks = Math.max(1, CORRUPTION_START_TICKS / rate);
+  if(tick%stepTicks==0){
    var players=event.getServer().getPlayerList().getPlayers();
    if(!players.isEmpty()&&tick>=startTicks){
     ServerPlayer anchor=players.get(0);CorruptionSavedData data=CorruptionSavedData.get(event.getServer().overworld());
