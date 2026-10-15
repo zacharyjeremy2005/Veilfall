@@ -9,16 +9,16 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.TreeFeatures;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
-import java.util.Optional;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 public final class ModBlocks {
  private static final AbstractTreeGrower VEIL_TREE_GROWER = new AbstractTreeGrower() {
-  @Override protected Optional<ConfiguredFeature<TreeConfiguration, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) { return Optional.empty(); }
+  @Override protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) { return TreeFeatures.DARK_OAK; }
  };
  public static final DeferredRegister<Block> BLOCKS=DeferredRegister.create(ForgeRegistries.BLOCKS,Veilfall.MOD_ID);
  public static final RegistryObject<Block> CORRUPTED_GROUND=BLOCKS.register("corrupted_ground",()->new CorruptedGroundBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK).strength(1.5F,6.0F).randomTicks().lightLevel(s->2)));
