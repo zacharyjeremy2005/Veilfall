@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "veilfall:veil_crystal" }
+      ]
+    },
+    {
+      "rolls": { "min": 3, "max": 6 },
+      "entries": [
+        { "type": "minecraft:item", "name": "veilfall:veilite_ingot" }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "veilfall:purification_shard", "functions": [
+          { "function": "minecraft:set_count", "count": { "min": 3, "max": 5 } }
+        ] }
+      ]
+    }
+  ]
+}
