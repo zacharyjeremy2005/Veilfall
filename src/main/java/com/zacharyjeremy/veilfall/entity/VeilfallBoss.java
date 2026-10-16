@@ -28,7 +28,6 @@ public class VeilfallBoss extends Zombie {
         this.setPersistenceRequired();
         this.setCanBreakDoors(true);
         this.setBaby(false);
-        this.fireImmune();
     }
 
     public static AttributeSupplier.Builder createAttributes() {
