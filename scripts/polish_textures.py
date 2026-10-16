@@ -29,6 +29,8 @@ im=Image.new("RGBA",(32,32),(29,18,37,255));d=ImageDraw.Draw(im)
 for box,col,w in [((1,1,30,30),(86,43,101,255),2),((4,4,27,27),(137,70,151,255),2),((8,8,23,23),(65,38,78,255),2),((11,11,20,20),(188,116,194,255),1)]:
  d.ellipse(box,outline=col,width=w)
 d.point((16,16),fill=(242,188,238,255));save(im,"block/veil_log_top.png")
+im=Image.new("RGBA",(32,32),(28,19,34,255));d=ImageDraw.Draw(im)
+d.ellipse((1,1,30,30),outline=(92,51,104,255),width=2);d.ellipse((5,5,26,26),outline=(139,82,151,255),width=2);d.ellipse((10,10,21,21),outline=(183,129,190,255),width=1);d.point((16,16),fill=(220,177,228,255));save(im,"block/stripped_veil_log_top.png")
 # Planed wood grain and consistent plank seams.
 im=shaded(32,(46,27,53),(28,18,35),(74,39,84),73);d=ImageDraw.Draw(im)
 for y in [0,8,16,24,31]:
