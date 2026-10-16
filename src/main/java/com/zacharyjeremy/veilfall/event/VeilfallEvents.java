@@ -1,5 +1,6 @@
 package com.zacharyjeremy.veilfall.event;
 import com.zacharyjeremy.veilfall.network.CorruptionSyncPacket;
+import com.zacharyjeremy.veilfall.config.VeilfallConfig;
 import com.zacharyjeremy.veilfall.network.VeilfallNetwork;
 import com.zacharyjeremy.veilfall.registry.ModBlocks;
 import com.zacharyjeremy.veilfall.registry.ModEntities;
@@ -29,14 +30,17 @@ public final class VeilfallEvents {
  @SubscribeEvent public static void onServerTick(TickEvent.ServerTickEvent event){
   if(event.phase!=TickEvent.Phase.END)return;
   int tick=event.getServer().getTickCount();
-  if(tick%CORRUPTION_STEP_TICKS==0){
+  int rate = VeilfallConfig.CORRUPTION_RATE.get();
+  int stepTicks = Math.max(1, CORRUPTION_STEP_TICKS / rate);
+  int startTicks = Math.max(1, CORRUPTION_START_TICKS / rate);
+  if(tick%stepTicks==0){
    var players=event.getServer().getPlayerList().getPlayers();
-   if(!players.isEmpty()&&tick>=CORRUPTION_START_TICKS){
+   if(!players.isEmpty()&&tick>=startTicks){
     ServerPlayer anchor=players.get(0);CorruptionSavedData data=CorruptionSavedData.get(event.getServer().overworld());
     if(data.getCorruption()==0){data.setCorruption(1);seedCorruption(anchor.serverLevel(),anchor);}
     else{
      int previous=data.getCorruption();data.addCorruption(1);int value=data.getCorruption();
-     if(tick%(CORRUPTION_STEP_TICKS*2)==0)seedCorruption(anchor.serverLevel(),anchor);
+     if(tick%(Math.max(1,stepTicks*2))==0)seedCorruption(anchor.serverLevel(),anchor);
      if(previous<20&&value>=20)announce(event.getServer().overworld(),"The Veil is stirring. Strange sounds carry on the wind...",SoundEvents.AMETHYST_BLOCK_CHIME);
      if(previous<25&&value>=25){announce(event.getServer().overworld(),"PHASE I — THE VEIL IS OPENING",SoundEvents.RESPAWN_ANCHOR_CHARGE);triggerRiftSurge(event.getServer(),1);}
      if(previous<45&&value>=45)announce(event.getServer().overworld(),"The air is splitting. Prepare for a violent change.",SoundEvents.RESPAWN_ANCHOR_CHARGE);
@@ -100,5 +104,20 @@ public final class VeilfallEvents {
  public static void sendCurrentCorruption(ServerPlayer player){
   int value=CorruptionSavedData.get(player.serverLevel()).getCorruption();
   VeilfallNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(()->player),new CorruptionSyncPacket(value));
+ }
+
+ @SubscribeEvent
+ public static void stripVeilLog(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+  if (event.getLevel().isClientSide) return;
+  if (!event.getItemStack().is(net.minecraft.tags.ItemTags.AXES)) return;
+  var level = event.getLevel();
+  var pos = event.getPos();
+  var state = level.getBlockState(pos);
+  if (!state.is(ModBlocks.VEIL_LOG.get())) return;
+  var axis = state.getValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS);
+  level.setBlock(pos, ModBlocks.STRIPPED_VEIL_LOG.get().defaultBlockState()
+          .setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, axis), 11);
+  event.setCancellationResult(net.minecraft.world.InteractionResult.sidedSuccess(false));
+  event.setCanceled(true);
  }
 }

@@ -1,19 +1,16 @@
 {
   "type": "minecraft:block",
-  "pools": [
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "veilfall:veilite_ore"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
-    }
-  ]
+  "pools": [{
+    "rolls": 1,
+    "entries": [{
+      "type": "minecraft:item",
+      "name": "veilfall:raw_veilite",
+      "functions": [{
+        "function": "minecraft:apply_bonus",
+        "enchantment": "minecraft:fortune",
+        "formula": "minecraft:ore_drops"
+      }]
+    }],
+    "conditions": [{"condition": "minecraft:survives_explosion"}]
+  }]
 }

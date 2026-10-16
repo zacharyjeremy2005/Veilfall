@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "veilfall:veil_log"
+    }
+  },
+  "result": {
+    "item": "veilfall:veil_planks",
+    "count": 4
+  }
+}
