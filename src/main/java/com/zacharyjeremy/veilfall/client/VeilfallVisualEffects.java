@@ -55,8 +55,12 @@ public final class VeilfallVisualEffects {
   if(mc.level==null||mc.player==null)return;
   int corruption=ClientCorruptionState.get();
   if(corruption<10)return;
-  float radius=0.06F+corruption*0.0022F;
-  float alpha=Math.min(0.92F,0.32F+corruption/150.0F);
+  float radius=0.035F+corruption*0.0028F;
+  float alpha=Math.min(0.96F,0.38F+corruption/125.0F);
+  // A drifting celestial silhouette replaces the sun as the Veil consumes the sky.
+  float solarAngle=mc.level.getTimeOfDay(1.0F)*(float)(Math.PI*2.0D);
+  float centerX=(float)Math.sin(solarAngle)*0.42F;
+  float centerY=(float)Math.cos(solarAngle)*0.27F;
   PoseStack pose=event.getPoseStack();
   pose.pushPose();
   pose.mulPose(mc.getEntityRenderDispatcher().cameraOrientation());
@@ -71,16 +75,32 @@ public final class VeilfallVisualEffects {
   com.mojang.blaze3d.vertex.Tesselator tess=com.mojang.blaze3d.vertex.Tesselator.getInstance();
   com.mojang.blaze3d.vertex.BufferBuilder buffer=tess.getBuilder();
   buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.TRIANGLE_FAN, com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
-  buffer.vertex(matrix,0.0F,0.0F,0.0F).color(4,2,10,(int)(255*alpha)).endVertex();
+  buffer.vertex(matrix,centerX,centerY,0.0F).color(2,1,7,(int)(255*alpha)).endVertex();
   for(int i=0;i<=64;i++){
    double a=Math.PI*2.0*i/64.0;
-   buffer.vertex(matrix,(float)Math.cos(a)*core,(float)Math.sin(a)*core,0.0F).color(4,2,10,(int)(255*alpha)).endVertex();
+   buffer.vertex(matrix,centerX+(float)Math.cos(a)*core,centerY+(float)Math.sin(a)*core,0.0F).color(2,1,7,(int)(255*alpha)).endVertex();
   }
   tess.end();
   buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
   for(int i=0;i<=96;i++){
    double a=Math.PI*2.0*i/96.0;
-   buffer.vertex(matrix,(float)Math.cos(a)*radius,(float)Math.sin(a)*radius,-0.001F).color(113,42,160,(int)(150*alpha)).endVertex();
+   buffer.vertex(matrix,centerX+(float)Math.cos(a)*radius,centerY+(float)Math.sin(a)*radius,-0.001F).color(145,48,190,(int)(190*alpha)).endVertex();
+  }
+  tess.end();
+  // A second broken ring and a thin hot edge give the event-horizon silhouette depth.
+  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
+  for(int i=0;i<=96;i++){
+   double a=Math.PI*2.0*i/96.0;
+   float wobble=radius*(1.16F+0.035F*(float)Math.sin(a*7.0+solarAngle));
+   buffer.vertex(matrix,centerX+(float)Math.cos(a)*wobble,centerY+(float)Math.sin(a)*wobble,-0.002F)
+     .color(70,22,111,(int)(115*alpha)).endVertex();
+  }
+  tess.end();
+  buffer.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.LINE_STRIP,com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_COLOR);
+  for(int i=0;i<=64;i++){
+   double a=Math.PI*2.0*i/64.0;
+   buffer.vertex(matrix,centerX+(float)Math.cos(a)*radius*0.82F,centerY+(float)Math.sin(a)*radius*0.82F,-0.003F)
+     .color(12,5,19,(int)(255*alpha)).endVertex();
   }
   tess.end();
   RenderSystem.enableDepthTest();
