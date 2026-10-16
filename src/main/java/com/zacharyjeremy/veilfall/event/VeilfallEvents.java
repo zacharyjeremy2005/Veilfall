@@ -105,4 +105,19 @@ public final class VeilfallEvents {
   int value=CorruptionSavedData.get(player.serverLevel()).getCorruption();
   VeilfallNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(()->player),new CorruptionSyncPacket(value));
  }
+
+ @SubscribeEvent
+ public static void stripVeilLog(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+  if (event.getLevel().isClientSide) return;
+  if (!event.getItemStack().is(net.minecraft.tags.ItemTags.AXES)) return;
+  var level = event.getLevel();
+  var pos = event.getPos();
+  var state = level.getBlockState(pos);
+  if (!state.is(ModBlocks.VEIL_LOG.get())) return;
+  var axis = state.getValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS);
+  level.setBlock(pos, ModBlocks.STRIPPED_VEIL_LOG.get().defaultBlockState()
+          .setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, axis), 11);
+  event.setCancellationResult(net.minecraft.world.InteractionResult.sidedSuccess(false));
+  event.setCanceled(true);
+ }
 }
