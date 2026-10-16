@@ -1,1 +1,1 @@
-{"parent":"minecraft:block/cube_column","textures":{"end":"veilfall:block/veil_log","side":"veilfall:block/veil_log"}}
+{"parent":"minecraft:block/cube_column","textures":{"end":"veilfall:block/veil_log_top","side":"veilfall:block/veil_log"}}
