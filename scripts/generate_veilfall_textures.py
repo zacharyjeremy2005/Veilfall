@@ -203,3 +203,7 @@ for index,(name,(base,eye)) in enumerate(mobs.items()):
     d.line((43,20,41,24,44,27),fill=(*eye,255),width=1)
     save(im,f"entity/{name}.png")
 print("Generated Veilfall textures.")
+
+# Apply the detailed second-pass materials as part of the normal build.
+import runpy
+runpy.run_path('scripts/polish_textures.py', run_name='__main__')
